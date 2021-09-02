@@ -90,3 +90,5 @@ if (comparacion === true)
 } else {
     console.log("Primera letra:", letra1 ,"aparece despues que la segunda letra: ", letra2)
 }
+
+// OPERADORES LOGICOS && (AND) || (OR) ! (NEGACION)
