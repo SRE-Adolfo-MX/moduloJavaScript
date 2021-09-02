@@ -86,7 +86,7 @@ comparacion = letra1 <= letra2
 
 if (comparacion === true)
 {
-    console.log("Primer letra:", letra1 ,"aparece antes o en la misma posision que la segunda letra: ", letra2)
+    console.log("Primera letra:", letra1 ,"aparece antes o en la misma posision que la segunda letra: ", letra2)
 } else {
-    console.log("Primer letra:", letra1 ,"aparece despues que la segunda letra: ", letra2)
+    console.log("Primera letra:", letra1 ,"aparece despues que la segunda letra: ", letra2)
 }
