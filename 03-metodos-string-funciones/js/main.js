@@ -218,18 +218,16 @@ Ejercicio 6:
 
 
 
-cadena1 = prompt("Ingresa una palabra")
-cadena2 = prompt("Ingresa otra palabra")
+cadena1 = prompt("Ingresa un string de dos palabras")
 
-function ejercicio6(cadena1, cadena2) {
+function ejercicio6(cadena1) {
     
-    cantidad1 = cadena1.length;
-    cantidad2 = cadena2.length;
-    
-    if (cadena1 > cadena2){
-        result = "La palabra mas larga es: "+cadena1
+    let cadenaTotal = cadena1.split(" ");
+
+    if (cadenaTotal[0].length > cadenaTotal[1].length){
+        result = "La palabra mas larga es la primera: "+cadenaTotal[0]
     } else if (cadena1 < cadena2){
-        result = "La palabra mas larga es: "+cadena2
+        result = "La palabra mas larga es la segunda: "+cadenaTotal[1]
     } else {
         result = "Las dos palabras son de la misma longitud"
     }
@@ -237,4 +235,4 @@ function ejercicio6(cadena1, cadena2) {
     return result;
 }
 
-console.log(ejercicio6(cadena1, cadena2))
+console.log(ejercicio6(cadena1))
