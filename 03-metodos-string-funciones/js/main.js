@@ -226,7 +226,7 @@ function ejercicio6(cadena1) {
 
     if (cadenaTotal[0].length > cadenaTotal[1].length){
         result = "La palabra mas larga es la primera: "+cadenaTotal[0]
-    } else if (cadena1 < cadena2){
+    } else if (cadenaTotal[0].length < cadenaTotal[1].length){
         result = "La palabra mas larga es la segunda: "+cadenaTotal[1]
     } else {
         result = "Las dos palabras son de la misma longitud"
