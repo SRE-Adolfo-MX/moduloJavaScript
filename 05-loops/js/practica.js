@@ -166,7 +166,6 @@ for(i=1;i<=10;i++)
     solicitudNumero=Number(solicitudNumero);
     if (i > 5) {
         totalSuma+=solicitudNumero;
-        console.log(totalSuma)
         }      
       
 }
