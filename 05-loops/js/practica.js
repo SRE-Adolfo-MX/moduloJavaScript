@@ -78,13 +78,17 @@ let numIngresado = prompt("Ingrese un numero del 10 al 100")
 i = 1
 numIngresado = Number(numIngresado);
 
-while(i <= numIngresado){
+if (numIngresado < 10 || numIngresado > 100){
+    console.log("Numero invalido");
+}else {
+        while(i <= numIngresado){
 
-    if (i % 2 === 0){
-        console.log(`Numero ${i} es par`);
+            if (i % 2 === 0){
+                console.log(`Numero ${i} es par`);
+            }
+            i++;
+        }
     }
-    i++;
-}
 
 
 /*
