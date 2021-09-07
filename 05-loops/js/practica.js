@@ -97,7 +97,16 @@ Imprimir en consola la suma total de todos los digitos de una cantidad p.ej. "12
 
 */
 
+let digito = prompt("Ingresa digito");
+let digitoLength = digito.length;
+i=0;
+let totalSumaDigito=0;
+while(i<=digitoLength){
+    totalSumaDigito+=Number(digito.charAt(i));
+    i++
+}
 
+console.log(`La suma total de tu digito ingresado: ${digito} es de ${totalSumaDigito}`);
 
 /*
 
@@ -156,6 +165,26 @@ input: hello Koders
 output: helloKoders
 
 */
+let stringCadena = "Hola como estas";
+let  stringLength = stringCadena.length;
+let letraTotal="";
+let letra="";
+
+for(i=0;i<=stringLength;i++){
+
+    stringCadena = stringCadena.toLowerCase();
+    letra = stringCadena.charAt(i);
+    if (letra === " "){
+        i++;
+        letraTotal+=stringCadena.charAt(i).toUpperCase();
+    }else{
+        letraTotal+=stringCadena.charAt(i);
+    }
+    
+}
+
+console.log(letraTotal);
+
 
 /*
 Ejercicio 8:
