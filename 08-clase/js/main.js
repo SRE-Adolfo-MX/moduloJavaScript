@@ -128,7 +128,7 @@ const caractString = (string1) => {
     console.log(stringComplete);
 }
 
-let string1 = prompt("Introduce una palabra");
+string1 = prompt("Introduce una palabra");
 
 console.log(caractString(string1));
 
@@ -143,7 +143,7 @@ const stringParentezis = (string1) => {
     console.log(string1);
 }
 
-let string1 = prompt("Ingrese una palabra entre parentezis");
+string1 = prompt("Ingrese una palabra entre parentezis");
 
 console.log(stringParentezis(string1));
 
