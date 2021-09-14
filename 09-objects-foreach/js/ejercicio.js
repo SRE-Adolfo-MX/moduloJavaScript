@@ -129,3 +129,48 @@ console.log(`El promedio final de HTML es: ${promedioHTML/5}`)
 console.log(`El promedio final de CSS es: ${promedioCSS/5}`)
 console.log(`El promedio final de JS es: ${promedioJS/5}`)
 console.log(promedioAlto);
+
+
+// ejercicios
+
+let dataArray = [
+    ["Fernanda","Palacios"],
+    ["Alfred","Altamirano"],
+    ["Angel","Resendiz"],
+    ["Elda","Corona"],
+    ["Tux","Tuxtla"],
+    ["Jorge","De Buen"]
+]
+
+/*
+arrayMentor = [
+    {
+        name: "Fernanda",
+        lastName: "Palacios"
+    },
+    {
+        name: "Alfred",
+        lastName: "Altamirano"
+    },
+    ...,
+    {...}
+]
+
+*/
+
+console.log("************EJERCICIO2****************")
+
+let name;
+let LastName;
+let arrayMentor = [];
+dataArray.forEach((mentor,index) => {
+    name = mentor[0];
+    LastName = mentor[1];
+    const arrayMentor1 = {
+        name,
+        LastName
+    }
+    arrayMentor.push(arrayMentor1);
+})
+
+console.log(arrayMentor);
