@@ -118,3 +118,31 @@ const ejercicio1 = (dataArray) => {
 
 
 console.log(ejercicio1(dataArray));
+
+dataArray = [
+    "Fernanda",
+    "Alfred",
+    "Angel",
+    "Elda",
+    "Tux",
+    "Jorge"
+]
+
+dataArray.forEach((name, index) => {
+    console.log(`el nombre es: ${name} en la posicion ${index}`)
+})
+
+let arrayMen = [
+    {
+        name: "Fernanda",
+        lastName: "Palacios"
+    },
+    {
+        name: "Alfred",
+        lastName: "Altamirano"
+    }
+]
+
+arrayMen.forEach((profesor, index) =>{
+    console.log(profesor.name);
+})
