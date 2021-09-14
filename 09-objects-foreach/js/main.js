@@ -44,3 +44,78 @@ console.log(personObjects);
 personObjects.name = personObjects.name.toUpperCase();
 
 console.log(personObjects.name);
+
+// mandar mensaje concatenado
+
+console.log(`Hola mi nombre es: ${personObjects.name} ${personObjects.LastName} y tengo la edad de ${personObjects.age}`);
+
+// destructuring assigment
+
+    // dentro de las llaves que propiedades quiero obtener 
+let {name, LastName, age} = personObjects;
+
+console.log(`Hola mi nombre es: ${name} ${LastName} y tengo la edad de ${age}`);
+
+// crear
+
+let firstname = "Adolfo"
+let generation = 13
+let bootcamp = "JS"
+
+const koderObject = {
+    firstname,
+    generation,
+    bootcamp
+}
+
+console.log(koderObject);
+
+// ejercicios
+
+let dataArray = [
+    ["Fernanda","Palacios"],
+    ["Alfred","Altamirano"],
+    ["Angel","Resendiz"],
+    ["Elda","Corona"],
+    ["Tux","Tuxtla"],
+    ["Jorge","De Buen"]
+]
+
+/*
+arrayMentor = [
+    {
+        name: "Fernanda",
+        lastName: "Palacios"
+    },
+    {
+        name: "Alfred",
+        lastName: "Altamirano"
+    },
+    ...,
+    {...}
+]
+
+*/
+
+const arrayMentor = [];
+
+console.log("**********EJERCICIO*************")
+
+const ejercicio1 = (dataArray) => {
+    for(let i=0;i<dataArray.length;i++){
+        let nameComplete = dataArray[i];
+        name = nameComplete[0];
+        LastName = nameComplete[1];
+        const arrayMentor1 = {
+            name,
+            LastName
+        }
+        
+        console.log(arrayMentor1);
+        arrayMentor.push(arrayMentor1);
+    }
+    console.log(arrayMentor);
+}
+
+
+console.log(ejercicio1(dataArray));
