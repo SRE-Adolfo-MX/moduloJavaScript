@@ -111,7 +111,6 @@ const ejercicio1 = (dataArray) => {
             LastName
         }
         
-        console.log(arrayMentor1);
         arrayMentor.push(arrayMentor1);
     }
     console.log(arrayMentor);
