@@ -94,23 +94,44 @@ console.log(nombresBanda(songsData));
 */
 
 console.log("*******EJERCICIO2*************")
-let bandSongs1
-let bandSongs = []
-let songsBand = songsData.forEach((song, item) => {
-    
-    let band = song.band;
-    let songs = song.name;
-    let listBands = [];
-    if(!listBands.includes(band)){
-        listBands.push(band)
-    }
-    bandSongs1 = {
-            listBands
+
+let songGroup = (songsData, band) => {
+    let Songs = [];
+    let numSongs = songsData.length;
+    for(i=0;i<numSongs;i++){
+        if(songsData[i].band === band){
+            Songs.push(songsData[i].name);
         }
-    console.log(bandSongs1)
-})
+    }
+    return Songs;
+}
+
+/*console.log(songGroup(songsData, band ))*/
 
 
+
+let groupByBands = (songsData) =>{
+
+    let nameBands = nombresBanda(songsData);
+    let numBands = nameBands.length;
+    let groupByBand;
+    let ArrayGroup=[];
+    for(let i=0;i<numBands;i++){
+        let band = nameBands[i];
+        let groupSongs = songGroup(songsData, band );
+        groupByBand = {
+            band,
+            groupSongs
+        }
+        ArrayGroup.push(groupByBand)
+    }
+    
+
+    return ArrayGroup;
+
+}
+
+console.log(groupByBands(songsData));
 
 /*
 - La cancion con más reproducciones
