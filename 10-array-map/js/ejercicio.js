@@ -146,7 +146,6 @@ let reproductions = songsData.filter((song, item) => {
         max = arreglo;
     }
 })
-console.log(reproductions)
 
 let songReproduction = (songsData, max) =>{
 
@@ -179,7 +178,6 @@ let likes = songsData.filter((song, item) => {
         maxlike = arreglo;
     }
 })
-console.log(likes)
 
 let songLikes = (songsData, maxlike) =>{
 
