@@ -16,7 +16,7 @@ const arrayFruits = [
     "pera",
     "naranja"
 ]
-// spray operator
+// spread operator
 const copyArrayFruit = {...arrayFruits, licuado: "banana"}
 
 console.log(copyArrayFruit);
