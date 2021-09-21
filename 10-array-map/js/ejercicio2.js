@@ -101,10 +101,10 @@ criterio: cel
 ]
 */
 
-const getSongsByBand = (arraySongs, string) => {
-    let songs = arraySongs.filter((song, index) => song.name.toLowerCase().includes(string.toLowerCase()))
+const getSongsByBand = (arraySongs, criterio, string) => {
+    let songs = arraySongs.filter((song, index) => song[criterio].toLowerCase().includes(string.toLowerCase()))
     return songs
 }
 
-console.log(getSongsByBand(songsData,"CEL"))
+console.log(getSongsByBand(songsData, "band", "ma"))
 
