@@ -333,8 +333,7 @@ let sumaTotal = cartShoppings.reduce((accum, product)=>{
 },0)
 
 
-const Total = () => {
-    
+const Total = () => {   
     console.log(result)
     console.log(result2)
     console.log(`Total ${sumaTotal}`)
