@@ -23,9 +23,12 @@ console.log(copyArrayFruit);
 
 const result = arrayFruits.reduce((accum, fruit, index)=>{
     let count = accum[fruit] ? accum[fruit] + 1 : 1
-    console.log(count)
+/*     console.log(count)
+    console.log(accum) */
     return {
         ...accum,
         [fruit]: count
     }
 },{})
+
+console.log(result)
