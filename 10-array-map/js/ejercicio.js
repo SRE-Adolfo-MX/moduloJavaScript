@@ -137,6 +137,13 @@ console.log(groupByBands(songsData));
 - La cancion con más reproducciones
 */
 
+const getSongsByBand = (arraySongs, bandName) => {
+    let songs = arraySongs.filter((song, index) => song.band === bandName)
+    return songs
+}
+
+console.log(getSongsByBand(songsData,"Enanitos Verdes"))
+
 console.log("*******EJERCICIO3*************")
 let max=0;
 let reproductions = songsData.filter((song, item) => {
