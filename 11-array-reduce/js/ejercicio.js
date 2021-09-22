@@ -188,7 +188,19 @@ const productsChipsDrinks = (products) => {
     return art;
 }
 
-console.log(productsChipsDrinks(products))
+/* console.log(productsChipsDrinks(products)) */
+
+const productOrdered = arrayProducts => {
+    let products = arrayProducts.reduce((accum, product)=>{
+        const { type } = product
+        return !accum[type]
+               ? {...accum, [type]: [product]} // No existe la propiedad
+               : {...accum, [type]: [...accum[type], product]} // cuando ya existe
+    }, {})
+    console.log(products)
+}
+
+productOrdered(products);
 
 console.log("obtener todos los productos < a $50 y obtener >= $50")
 
@@ -207,6 +219,12 @@ const productsRangemin50 = (products) => {
 }
 
 console.log(productsRangemin50(products))
+
+const getProducts = (isMayor, arrayProducts) => {
+    return arrayProducts.filter((product) => isMayor ? product.price >= 50 : product.price < 50)
+}
+
+getProducts(true, products);
 
 const productsRangemax50 = (products) => {
     let art = [];
