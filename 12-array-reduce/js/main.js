@@ -62,15 +62,37 @@ const songsData = [
             likes: 12345,
             reproductions: 10000
         },
+    },
+    {
+        name: "Entre dos tierras",
+        band: "Heroes del silencio",
+        releaseYear: "1999",
+        statistics: {
+            likes: 12345,
+            reproductions: 10000
+        },
     }
 ]
+
+const stringToCamelCase = string => {
+    let stringCamelCased = string.split(" ").reduce((accum, word, index)=>{
+        let newString = word.toLowerCase();
+        return index != 0
+                ? accum + newString.charAt(0).toUpperCase() + newString.slice(1)
+                : accum + newString 
+    }, "") 
+    return stringCamelCased
+}
+
+console.log(stringToCamelCase("Heroes del silencio"))
 
 const getSongsByBand = arraySongs => {
     let songs = songsData.reduce((accum, song) =>{
         const { band } = song;
-        return !accum[band]
-        ? {...accum, [band]: [song.name]} // No existe la propiedad
-        : {...accum, [band]: [...accum[band], song.name]} // cuando ya existe
+        let bandWithCamel = stringToCamelCase(band) 
+        return !accum[bandWithCamel]
+        ? {...accum, [bandWithCamel]: [song.name]} // No existe la propiedad
+        : {...accum, [bandWithCamel]: [...accum[bandWithCamel], song.name]} // cuando ya existe
     },{})
     console.log(songs)
 }
