@@ -22,3 +22,7 @@ Personal.prototype.saludar = function() {
 }
 
 persona1.saludar()
+
+
+
+
