@@ -49,13 +49,8 @@ btnIncrementar.addEventListener("click", () => {
     
             let button = createNode("button", "Eliminar")
             button.classList.add("btn", "btn-danger")
-    
-            button.addEventListener("click", ()=> {
-                console.log("Eliminando... jeje")
-                // Eliminar del array
-                let btnDrop = document.getElementById("btn-danger");
-                console.log(btnDrop)
-            })
+
+            button.setAttribute("data-koder-id", number)
     
             tdButton.appendChild(button)
     
@@ -66,10 +61,20 @@ btnIncrementar.addEventListener("click", () => {
     
             tBody.appendChild(tr)
             
+            button.addEventListener("click", (event)=> {
+                console.log("Eliminando... jeje")
+                // Eliminar del array
+                let posstionKoder = event.target.dataset.koderId;
+                kodersArray.splice(posstionKoder, 1)
+                console.log(kodersArray)
+                printTable()
+            })
+
         })
         
+
     }
-    
+    console.log(kodersArray)
     printTable()
     
 
