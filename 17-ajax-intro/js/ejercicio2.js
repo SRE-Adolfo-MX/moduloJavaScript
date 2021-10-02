@@ -61,8 +61,8 @@ const removeKoder = (event) => {
     console.log(positionKoder)
     //kodersArray.splice(positionKoder, 1)
     // console.log(kodersArray)
-    //deleteKoder(positionKoder)
-    printTable()
+    deleteKoder(positionKoder)
+    //dataRefresh()
 }
  
 const createKoder = (koderObject) => {
@@ -79,21 +79,22 @@ const createKoder = (koderObject) => {
     xhr.send(JSON.stringify(koderObject))
     printTable()
 }
-/* 
+ 
 const deleteKoder = (koderObject) => {
     const xhr = new XMLHttpRequest()
     xhr.addEventListener("readystatechange", () => {
         if(xhr.readyState === 4) {
             if(xhr.status === 200) {
                 console.log(xhr.responseText)
+                //dataRefresh()
             }
         }
     })
-    xhr.open("DELETE", "https://api-13va-default-rtdb.firebaseio.com/.json", true)
+    xhr.open("DELETE", `https://api-13va-default-rtdb.firebaseio.com/${koderObject}.json`, true)
 
-    xhr.send(JSON.stringify(koderObject))
+    xhr.send()
     printTable()
-} */
+}
 
 document.getElementById("btn-agregar").addEventListener("click", (event)=> {
   let newKoder = {}
