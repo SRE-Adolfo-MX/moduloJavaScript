@@ -20,7 +20,7 @@ const getProducts = () => {
         }
     })
 
-    xhr.open("GET", "https://api-friki-market-default-rtdb.firebaseio.com/products.json")
+    xhr.open("GET", "https://frikitest-14eb5-default-rtdb.firebaseio.com/Products.json")
     xhr.send()
 }
 
