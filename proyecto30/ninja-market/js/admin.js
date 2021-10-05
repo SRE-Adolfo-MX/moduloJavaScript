@@ -20,11 +20,6 @@ const createProduct = (productObject) => {
     xhr.send(JSON.stringify(productObject))
 }
 
-const productTest = {
-    description: "Github en version funko...",
-    price: "1234",
-    stock: "500"
-}
 
 const updateProduct = (idProduct, newDataToUpdate) => {
     const xhr = new XMLHttpRequest()
@@ -88,7 +83,7 @@ const deleteKoder = (koderObject) => {
         if(xhr.readyState === 4) {
             if(xhr.status === 200) {
                 console.log(xhr.responseText)
-                //dataRefresh()
+                dataRefresh()
             }
         }
     })
@@ -96,7 +91,7 @@ const deleteKoder = (koderObject) => {
     xhr.open("DELETE", `https://frikitest-14eb5-default-rtdb.firebaseio.com/Products/${koderObject}.json`, true)
 
     xhr.send()
-    //printTable()
+    dataRefresh()
 }
 
 const removeKoder = (event) => {
@@ -163,7 +158,8 @@ dataRefresh()
 
 const printTable = () => {
     let tBody = document.getElementById("list-products")
-
+    //let img = document.getElementById("image-prod")
+    let list = document.querySelector("#products")
     while(tBody.lastElementChild) {
         tBody.removeChild(tBody.lastElementChild)
     }
@@ -186,6 +182,7 @@ const printTable = () => {
         button.setAttribute("data-koder-index",id)
         button2.classList.add("btn", "btn-danger")
         button2.setAttribute("data-koder-index",id)
+
 
       //  button.addEventListener("click","2")
       button2.addEventListener("click", removeKoder)
