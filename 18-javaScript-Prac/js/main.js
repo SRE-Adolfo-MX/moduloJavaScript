@@ -36,9 +36,9 @@ let arrayImage = [
 ]
 
 let number = 0;
-$('#Anterior').attr('disabled','disabled')
+//$('#Anterior').attr('disabled','disabled')
 
-$(".btn-secondary").click((event)=>{
+/* $(".btn-secondary").click((event)=>{
 
     let valor = event.target.innerText
 
@@ -79,4 +79,43 @@ $(".btn-secondary").click((event)=>{
     } 
     
     
-})
+}) */
+
+const setImgSrc = (src) => {
+    $('.img-rounded').attr("src",src).fadeTo("slow",0, () =>{
+        $('.img-rounded').attr("src",src).fadeTo("slow",1)
+    })
+}
+
+const setButtonsstate = () => {
+    number === 0 
+    ? $('#Anterior').attr('disabled','disabled')
+    : $('#Anterior').removeAttr('disabled')
+
+    number === arrayImage.length - 1 
+    ? $('#Siguiente').attr('disabled','disabled')
+    : $('#Siguiente').removeAttr('disabled')
+}
+
+const forward = () => {
+ number++;
+ //$('#Anterior').removeAttr('disabled');
+ let src = arrayImage[number].image;
+ setImgSrc(src)
+ setButtonsstate();
+
+}
+
+const backward = () => {
+    number--;
+    let src = arrayImage[number].image;
+    setImgSrc(src)
+    setButtonsstate();
+   }
+
+let src = arrayImage[number].image;
+setImgSrc(src)   
+
+$('#Siguiente').click(forward);
+$('#Anterior').click(backward);
+setButtonsstate();
