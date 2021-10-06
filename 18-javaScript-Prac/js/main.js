@@ -4,13 +4,16 @@ $( '.chkd' ).on( 'click', function() {
     console.log(valor)
     switch (valor) {
         case 'Cuadrado':
-            $(".Cuadrado").toggle();
+            $(".Rectangulo").toggle();
+            $(".Circulo").toggle();
             break;
         case 'Rectangulo':
-            $(".Rectangulo").toggle();
+            $(".Cuadrado").toggle();
+            $(".Circulo").toggle();
             break;
         case 'Circulo':
-            $(".Circulo").toggle();
+            $(".Rectangulo").toggle();
+            $(".Cuadrado").toggle();
             break;
         default:
             console.log("Seleccion incorrecta")
@@ -43,15 +46,17 @@ $(".btn-secondary").click((event)=>{
 
     if(valor === "Siguiente -->" && number < arrayImage.length){
 
-        if (number === arrayImage.length){
-            $('#Siguiente').attr('disabled','disabled');
-        }
+
         console.log(number)
         console.log(arrayImage[number].image)
         let img = arrayImage[number].image
         $('.img-rounded').attr("src",img)
     
         number++;
+        if (number === arrayImage.length){
+            $('#Siguiente').attr('disabled','disabled');
+            number--;
+        }
 
     } 
 
@@ -61,10 +66,16 @@ $(".btn-secondary").click((event)=>{
         console.log("entro ante")
         console.log(number)
         number--;
+        if (number === -1){
+            $('#Anterior').attr('disabled','disabled');
+            $('#Siguiente').removeAttr('disabled');
+            number++;
+        }
         console.log(number)
         console.log(arrayImage[number].image)
         let img = arrayImage[number].image
         $('.img-rounded').attr("src",img)
+
     } 
     
     
