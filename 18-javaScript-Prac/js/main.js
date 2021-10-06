@@ -81,6 +81,26 @@ let number = 0;
     
 }) */
 
+
+const addImage = () => {
+    let numberArray = arrayImage.length + 1
+    let image = $('#Caja').val();
+    console.log(image)
+    //let image = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Code-1076536.jpg/800px-Code-1076536.jpg"
+    let imageObj = {
+        numberArray,
+        image
+    }
+
+    arrayImage.push(imageObj);
+
+    console.log(arrayImage)
+    setButtonsstate();
+
+   }
+
+   $('#Agregar').click(addImage);
+
 const setImgSrc = (src) => {
     $('.img-rounded').attr("src",src).fadeTo("slow",0, () =>{
         $('.img-rounded').attr("src",src).fadeTo("slow",1)
@@ -93,8 +113,8 @@ const setButtonsstate = () => {
     : $('#Anterior').removeAttr('disabled')
 
     number === arrayImage.length - 1 
-    ? ($('#Siguiente').attr('disabled','disabled'), $('#Agregar').removeClass("d-none"))
-    : ($('#Siguiente').removeAttr('disabled'), $('#Agregar').addClass("d-none"))
+    ? ($('#Siguiente').attr('disabled','disabled'), $('#Agregar').removeClass("d-none"), $('#texto').removeClass("d-none"))
+    : ($('#Siguiente').removeAttr('disabled'), $('#Agregar').addClass("d-none"), $('#texto').addClass("d-none"))
 }
 
 const forward = () => {
@@ -113,9 +133,11 @@ const backward = () => {
     setButtonsstate();
    }
 
+
 let src = arrayImage[number].image;
 setImgSrc(src)   
 
 $('#Siguiente').click(forward);
 $('#Anterior').click(backward);
+//$('#Agregar').click(addImage);
 setButtonsstate();
