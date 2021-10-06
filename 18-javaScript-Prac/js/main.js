@@ -93,8 +93,8 @@ const setButtonsstate = () => {
     : $('#Anterior').removeAttr('disabled')
 
     number === arrayImage.length - 1 
-    ? $('#Siguiente').attr('disabled','disabled')
-    : $('#Siguiente').removeAttr('disabled')
+    ? ($('#Siguiente').attr('disabled','disabled'), $('#Agregar').removeClass("d-none"))
+    : ($('#Siguiente').removeAttr('disabled'), $('#Agregar').addClass("d-none"))
 }
 
 const forward = () => {
