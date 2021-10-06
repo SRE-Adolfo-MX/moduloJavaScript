@@ -11,11 +11,25 @@
 <body>
   <h1>JQuery</h1>
 
-  <div class="cuadro">
+<!--   <div class="cuadro">
+    <div class="controls-wrapper">
+      <label <for="square">>Square</label>
+      <input name="shape" id="square" type="radio" value="square">
+
+      <label for="rectangle">Rectangle</label>
+      <input name="shape" id="rectangle" type="radio" value="rectangle">
+
+      <label for="circle">Circle</label>
+      <input name="shape" id="circle" type="radio" value="circle">
+    </div> -->
+  </div>
     <div class="d-flex justify-content-around">
-      <label ><input name="shape"  type="checkbox"  class="chkd" id="cbox1" value="Cuadrado"> Cuadrado </label><br>
-      <label ><input name="shape" type="checkbox"  class="chkd" id="cbox2" value="Rectangulo"> Rectangulo </label><br>
-      <label ><input name="shape" type="checkbox"  class="chkd" id="cbox3" value="Circulo"> Circulo </label><br>
+      <label for="cuadrado"> Cuadrado </label>
+      <input name="shape"  type="radio"  class="chkd" id="cuadrado" value="Cuadrado">
+      <label for="rectangle" > Rectangulo </label>
+      <input name="shape" type="radio"  class="chkd" id="rectangle" value="Rectangulo">
+      <label for="circle" > Circulo </label>
+      <input name="shape" type="radio"  class="chkd" id="circle" value="Circulo">
     </div>
     <div class="d-flex justify-content-center" style="stroke: #000; border-style: solid;">
       <svg class="Circulo" width="250" height="150" viewBox="0 0 250 150">
