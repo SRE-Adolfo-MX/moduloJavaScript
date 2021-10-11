@@ -131,3 +131,4 @@ $( '.Del' ).on( 'click', function() {
     deleteProduct(valor)
 
 });
+

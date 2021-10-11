@@ -1,0 +1,15 @@
+.card-fer {
+    border: 2px dotted purple;
+    .card-img {
+        width: 200px;
+        margin: 0 auto;
+        img {
+            width: 100%;
+        }
+    }
+    .card-body {
+        span {
+            font-weight: bold;
+        }
+    }
+}
