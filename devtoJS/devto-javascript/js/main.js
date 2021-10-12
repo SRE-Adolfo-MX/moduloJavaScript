@@ -1,6 +1,6 @@
 let postsArray = [];
-
-
+let postsArrayFilter = [];
+let dataPostFilter;
 let yourDate = new Date()
 
 
@@ -8,7 +8,6 @@ $('.chkd').click(function() {
     window.location.href='newPost.html';
     return false;
 });
-
 
 
 $( '.Publish' ).on( 'click', function() {
@@ -41,7 +40,7 @@ const createPost = (dataObj) => {
         success: (response)=> {
             //console.log(response)
             window.location.href='index.html';
-            return false;
+
         },
         error: error => {
             console.log(error)
@@ -49,7 +48,37 @@ const createPost = (dataObj) => {
     })
 }
 
+const editPost = (dataObj) => {
+    $.ajax({
+        method: "POST", 
+        url: "https://devtojs-default-rtdb.firebaseio.com/editPost.json",
+        data: JSON.stringify(dataObj),
+        success: (response)=> {
+            //console.log(response)
+            location.href = "editPost.html"
 
+        },
+        error: error => {
+            console.log(error)
+        }
+    })
+}
+
+const checkPost = (dataObj) => {
+    $.ajax({
+        method: "POST", 
+        url: "https://devtojs-default-rtdb.firebaseio.com/checkPost.json",
+        data: JSON.stringify(dataObj),
+        success: (response)=> {
+            //console.log(response)
+            location.href = "indexPost.html"
+
+        },
+        error: error => {
+            console.log(error)
+        }
+    })
+}
 
 const getData = () => {
     let dataPost
@@ -68,6 +97,7 @@ const getData = () => {
             //console.log(postsArray)
 
             printPost(postsArray)
+            //printPostEdit(postsArray)
 
         },
         error: error => {
@@ -111,7 +141,7 @@ const printPost = arrayPots => {
         </div>    
     
         <div class="post">
-            <p>
+            <p id="Post" value="${id}">
                ${postTitle}
             </p>
         </div>
@@ -133,8 +163,9 @@ const printPost = arrayPots => {
             </span> 
             </div>
         <div> 4 min read 
-            <button>Save</button>
+            <button data-product-id="${id}" value="${id}" class="Edi btn btn-danger">Editar <i class="fas fa-cart-plus"></i></button>
             <button data-product-id="${id}" value="${id}" class="Del btn btn-danger">Eliminar <i class="fas fa-cart-plus"></i></button>
+            <button data-product-id="${id}" value="${id}" class="Vie btn btn-danger">View <i class="fas fa-cart-plus"></i></button>
             </div>
                 
         </div>
@@ -168,7 +199,7 @@ const printPost = arrayPots => {
         </div>    
     
         <div class="post">
-            <p>
+            <p id="Post" value="${id}">
                ${postTitle}
             </p>
         </div>
@@ -190,8 +221,9 @@ const printPost = arrayPots => {
             </span> 
             </div>
         <div> 4 min read 
-            <button>Save</button>
+            <button data-product-id="${id}" value="${id}" class="Edi btn btn-danger">Editar <i class="fas fa-cart-plus"></i></button>
             <button data-product-id="${id}" value="${id}" class="Del btn btn-danger">Eliminar <i class="fas fa-cart-plus"></i></button>
+            <button data-product-id="${id}" value="${id}" class="Vie btn btn-danger">View <i class="fas fa-cart-plus"></i></button>
             </div>
                 
         </div>
@@ -202,7 +234,6 @@ const printPost = arrayPots => {
     //console.log(allPost)
     list.innerHTML = allPost
 }
-
 getData()
 
 
@@ -228,14 +259,36 @@ $( '.Del' ).on( 'click', function() {
 });
 
 $('.buscador-form').on('submit', (e) => {e.preventDefault()});
+
 $('.buttonFilter').on('click', function() {
-  //console.log("Test")
-  let valor = $("#textFilter").val()
-  $('article').each(function() {
-    const $this = $(this);
-    const artitle = $this.find('p').text().trim().toLowerCase();
-    const incl = artitle.includes(valor.trim().toLowerCase());
-    $this.toggleClass('hide', valor.length > 0 && !incl);
+    //console.log("Test")
+    let valor = $("#textFilter").val()
+    $('article').each(function() {
+      const $this = $(this);
+      const artitle = $this.find('p').text().trim().toLowerCase();
+      const incl = artitle.includes(valor.trim().toLowerCase());
+      $this.toggleClass('hide', valor.length > 0 && !incl);
+    });
+    console.log(valor)
   });
-  console.log(valor)
+
+
+///// agregar editar
+
+$(".Edi").click(function(){
+    const valorEdit = $(this).val()
+    editPost(valorEdit)
+});
+
+$("#Post").click(function(){    
+    const valorPost = $(this)[0]
+    var key = valorPost.getAttribute("value");
+    console.log(key)
+    checkPost(key)
+});
+
+$(".Vie").click(function(){    
+    const valorP = $(this).val()
+    console.log(valorP)
+    checkPost(valorP)
 });
